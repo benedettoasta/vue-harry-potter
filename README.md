@@ -1,2 +1,2 @@
-# vue-harry-potter
+# vue-pokemon
 Exercise to learn VUE
