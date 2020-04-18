@@ -1,6 +1,6 @@
 <template>
   <header class="pokedex_header">
-    <h1>HEADER</h1>
+    <h1>POKEDEX</h1>
   </header>
 </template>
 
@@ -11,6 +11,6 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
 
 </style>
