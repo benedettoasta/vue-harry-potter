@@ -11,6 +11,8 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  min-height: 100%;
+  height: 100%;
 }
 
 #nav {
@@ -24,5 +26,10 @@
       color: #42b983;
     }
   }
+}
+
+body, html{
+  min-height: 100%;
+  height: 100%;
 }
 </style>

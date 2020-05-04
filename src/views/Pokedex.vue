@@ -1,7 +1,7 @@
 <template>
-  <b-container fluid class="pokedex_container p-0">
+  <b-container fluid class="pokedex_container p-0 fill">
   <!-- Content here -->
-    <b-row class="no-gutters">
+    <b-row class="no-gutters" align-v="start">
       <b-col>
         <pokedex-header />
       </b-col>
@@ -15,7 +15,7 @@
     </b-row>
 -->
 
-    <b-row class="no-gutters">
+    <b-row class="no-gutters" align-v="center">
       <b-col cols="4">
         <pokedex-list 
           :items="pokemonList" 
@@ -26,12 +26,13 @@
       <b-col cols="8">
         <pokedex-detail 
           :item="pokemonSelected"
+          v-if="pokemonSelected !== false"
         >
         </pokedex-detail>
       </b-col>
     </b-row>
 
-    <b-row class="no-gutters">
+    <b-row class="no-gutters" align-v="end">
       <b-col>
         <pokedex-footer />
       </b-col>
@@ -56,7 +57,7 @@ export default {
           { key: 'name', label: 'Pokemon Name' },
       ],
       pokemonList: {},
-      pokemonSelected: {},
+      pokemonSelected: false,
     }
   },
 
@@ -95,6 +96,14 @@ export default {
 .pokedex{
   &_header, &_footer{
     background-color: red;
+    height: 50;
+  }
+  &_container{
+      min-height: 100%;
+      height: 100%;
+  }
+  &_detail{
+      height: 100%;
   }
 }
 
