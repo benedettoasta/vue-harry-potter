@@ -120,7 +120,7 @@ export default {
   &_container{
       height: calc(100% - 75px);
 
-      > div{
+      div{
         height: 100%;
       }
 
