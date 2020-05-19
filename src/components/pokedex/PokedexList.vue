@@ -5,7 +5,9 @@
       :fields="this.fields"
       @row-clicked="getItemSelected"
     >
- 
+      <template v-slot:cell(#)="data">
+        {{ data.index + 1 }}
+      </template>
 
     </b-table>
 <!--
@@ -46,6 +48,8 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
+.b-table-sticky-header{
+  max-height: unset;
+}
 </style>

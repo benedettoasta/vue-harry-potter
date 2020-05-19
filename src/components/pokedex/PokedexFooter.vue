@@ -1,6 +1,6 @@
 <template>
   <footer class="pokedex_footer">
-    FOOTER
+    
   </footer>
 </template>
 
@@ -11,6 +11,12 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
+footer{
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    height: 25px;
+}
 </style>

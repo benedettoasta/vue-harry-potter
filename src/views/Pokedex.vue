@@ -1,21 +1,13 @@
 <template>
+<!--
   <b-container fluid class="pokedex_container p-0 fill">
-  <!-- Content here -->
     <b-row class="no-gutters" align-v="start">
       <b-col>
         <pokedex-header />
       </b-col>
     </b-row>
 
-<!--
-    <b-row class="no-gutters">
-      <b-col>
-        <pokedex-navbar />
-      </b-col>
-    </b-row>
--->
-
-    <b-row class="no-gutters" align-v="center">
+    <b-row class="no-gutters h-100" align-v="center">
       <b-col cols="4">
         <pokedex-list 
           :items="pokemonList" 
@@ -38,6 +30,29 @@
       </b-col>
     </b-row>
   </b-container>
+  -->
+  <div class="page">
+   <pokedex-header />
+   <b-container fluid class="pokedex_container p-0 fill">
+      <b-row class="no-gutters h-100" align-v="start">
+        <b-col cols="4">
+          <pokedex-list 
+            :items="pokemonList" 
+            :fields="pokemonListFields"
+            @select-item="setPokemonSelected">
+          </pokedex-list>
+        </b-col>
+        <b-col cols="8">
+          <pokedex-detail 
+            :item="pokemonSelected"
+            v-if="pokemonSelected !== false"
+          >
+          </pokedex-detail>
+        </b-col>
+      </b-row>
+   </b-container>
+   <pokedex-footer />
+  </div>
 </template>
 
 <script>
@@ -54,7 +69,11 @@ export default {
   data() {
     return {
       pokemonListFields: [
-          { key: 'name', label: 'Pokemon Name' },
+          '#',
+          { 
+            key: 'name', 
+            label: 'Pokemon Name' 
+          },
       ],
       pokemonList: {},
       pokemonSelected: false,
@@ -77,7 +96,7 @@ export default {
   },
 
   created() {
-    axios.get(`https://pokeapi.co/api/v2/pokemon/`)
+    axios.get(`https://pokeapi.co/api/v2/pokemon/?limit=151`)
     .then(response => {
       // JSON responses are automatically parsed.
       this.pokemonList = response.data
@@ -99,12 +118,20 @@ export default {
     height: 50;
   }
   &_container{
-      min-height: 100%;
-      height: 100%;
+      height: calc(100% - 75px);
+
+      div{
+        height: 100%;
+      }
+
   }
   &_detail{
       height: 100%;
   }
+}
+
+.page{
+  height: 100%;
 }
 
 </style>

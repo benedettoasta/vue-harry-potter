@@ -1,6 +1,6 @@
 <template>
   <header class="pokedex_header">
-    <b-img v-bind="mainProps" src="@/assets/Pokédex_logo.png" center />
+    <b-img v-bind="mainProps" :src="require('../../assets/Pokedex_logo.png')" />
   </header>
 </template>
 
