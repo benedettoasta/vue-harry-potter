@@ -52,6 +52,15 @@
         </b-container>
       </b-col>
     </b-row>
+    <b-row class="no-gutters" align-v="start">
+      <b-col
+        v-for="(item, name, index) in this.item.stats" 
+                    :key="index"
+                    class="p-0 m-0"
+      >
+        <!-- pokemon species -> evolution chain -->
+      </b-col>
+    </b-row>
   </b-container>
   
 </template>
